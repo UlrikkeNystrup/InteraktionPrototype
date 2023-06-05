@@ -1,14 +1,19 @@
 package UI
 
+import UI.Components.ButtonFun
+import UI.Components.TextTitle
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.interaktionprototype.ui.theme.InteraktionPrototypeTheme
 
@@ -22,7 +27,11 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    Greeting()
+                    MainScreen()
+
+
+
                 }
             }
         }
@@ -30,14 +39,20 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun Greeting() {
+    Column {
+        Text(text = "Interaktionsdatabasn")
+        Spacer
+        ButtonFun()
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     InteraktionPrototypeTheme {
-        Greeting("Android")
+        Greeting()
+        TextTitle("Skoven")
     }
+
 }
